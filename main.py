@@ -70,8 +70,9 @@ async def submit_quiz(submit_request: SubmitRequest):
     user_score = sum(answer == correct_answer for answer, correct_answer in zip(user_answers, correct_answers))
 
     return {"quiz_id": submit_request.quiz_id, "user_score": user_score, "correct_answers": correct_answers}
-
+"""
 if __name__ == "__main__":
     import uvicorn
 
     uvicorn.run(app, host="127.0.0.1", port=8000)
+"""
