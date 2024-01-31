@@ -44,7 +44,6 @@ def seed_quizzes():
 
 seed_quizzes()
 
-# API Endpoints
 
 @app.get("/quizzes/{quiz_id}", response_model=QuizResponse)
 async def get_quiz(quiz_id: int = Path(..., title="The ID of the quiz to retrieve")):
