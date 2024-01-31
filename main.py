@@ -33,7 +33,6 @@ quizzes_data = [
     ]}
 ]
 
-# Seed the quizzes data into the database
 def seed_quizzes():
     db = SessionLocal()
     for quiz_data in quizzes_data:
