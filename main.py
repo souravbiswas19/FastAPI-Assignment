@@ -5,16 +5,20 @@ import models
 
 app = FastAPI()
 
-class QuizResponse(BaseModel):
+class OurBaseModel(BaseModel):
+    class Config:
+        from_attributes = True
+
+class QuizResponse(OurBaseModel):
     quiz_id: int
     title: str
     questions: list[dict]
 
-class SubmitRequest(BaseModel):
+class SubmitRequest(OurBaseModel):
     quiz_id: int
     user_answers: list[str]
 
-class ResultResponse(BaseModel):
+class ResultResponse(OurBaseModel):
     quiz_id: int
     user_score: int
     correct_answers: list[str]
