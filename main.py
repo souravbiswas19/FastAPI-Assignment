@@ -19,7 +19,6 @@ class ResultResponse(BaseModel):
     user_score: int
     correct_answers: list[str]
 
-# Example quizzes data
 quizzes_data = [
     {"title": "Math Quiz", "questions": [
         {"statement": "What is 2 + 2?", "options": ["A. 3", "B. 4", "C. 5", "D. 6"], "correct_answer": "B"},
