@@ -1,4 +1,4 @@
-from fastapi import FastAPI, HTTPException, Query, Path
+from fastapi import FastAPI, HTTPException, Path
 from pydantic import BaseModel
 from database import SessionLocal
 import models
