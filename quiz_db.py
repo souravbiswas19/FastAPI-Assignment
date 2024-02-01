@@ -1,5 +1,7 @@
-from database import SessionLocal
-import models
+from database import SessionLocal # Import the SessionLocal object from the database module
+import models  # Import the models module containing database models
+
+# Sample data for quizzes in JSON format
 quizzes_data = [
     {
         "title": "Python Basics Quiz",
@@ -66,14 +68,21 @@ quizzes_data = [
     }
 ]
 
+# Function to feed quiz data into the database
 def feed_quizzes_to_db():
+    # Create a database session using the SessionLocal object
     db = SessionLocal()
+    # Iterate through each quiz data and add it to the database
     for quiz_data in quizzes_data:
+        # Create a Quiz database model instance with the quiz data
         db_quiz = models.Quiz(**quiz_data)
+        # Add the quiz to the session
         db.add(db_quiz)
+    # Commit the changes to the database
     db.commit()
+    # Close the session
     db.close()
 
-    
+# Create database tables and feed quizzes data into the database
 models.create_tables()
 feed_quizzes_to_db()
