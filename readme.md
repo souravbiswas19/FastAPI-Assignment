@@ -13,7 +13,7 @@ This repository contains a simple Quiz API built using FastAPI. The API allows u
 
     ```
 
-2. Set up a PostgreSQL database and update the `DATABASE_URL` in the `main.py` file with your database credentials.
+2. Set up a PostgreSQL database and update the database url in the `database.py` file with your database credentials.
 
 ### Running the FastAPI App
 
