@@ -19,9 +19,18 @@ This repository contains a simple Quiz API built using FastAPI. The API allows u
 
 1. Run the FastAPI application:
 
+    -> Run the `main.py` file using code runner or in the terminal 
+
+    ```bash
+    python main.py
+    ```
+    
+    -> Alternatively, you can run it with Uvicorn
+
     ```bash
     uvicorn main:app --reload
     ```
+
 
 2. The API will be available at `http://127.0.0.1:8000`.
 
