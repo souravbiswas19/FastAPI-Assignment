@@ -2,20 +2,18 @@
 
 This repository contains a simple Quiz API built using FastAPI. The API allows users to retrieve quizzes, submit quiz responses, and fetch quiz results.
 
-## Getting Started
-
-Follow the instructions below to use the FastAPI Quiz API:
+## Follow the instructions below to use the FastAPI Quiz API:
 
 ### Prerequisites
 
-1. Install [Python](https://www.python.org/downloads/).
-2. Install required packages by running:
-
+1. Install required packages by running:
+    
     ```bash
-    pip install -r requirements.txt
+    pip install fastapi[all] sqlalchemy psycopg2 psycopg2-binary uvicorn[standard]
+
     ```
 
-3. Set up a PostgreSQL database and update the `DATABASE_URL` in the `main.py` file with your database credentials.
+2. Set up a PostgreSQL database and update the `DATABASE_URL` in the `main.py` file with your database credentials.
 
 ### Running the FastAPI App
 
@@ -39,6 +37,7 @@ Follow the instructions below to use the FastAPI Quiz API:
 - **Method:** GET
 - **URL:** http://127.0.0.1:8000/quizzes/{quiz_id}
   - Replace `{quiz_id}` with the ID of the quiz you want to retrieve.
+  - Eg: http://127.0.0.1:8000/quizzes/1
 
 ### 2. Submit Quiz Answers
 
@@ -49,15 +48,13 @@ Follow the instructions below to use the FastAPI Quiz API:
 **Postman Instructions:**
 - **Method:** POST
 - **URL:** http://127.0.0.1:8000/submit
-- **Headers:**
-  - `Content-Type: application/json`
 - **Body:**
-  - **Raw JSON**
+  - **JSON**
     ```json
     {
       "quiz_id": 1,
       "user_id": 1,
-      "user_answers": ["B", "C", "A"]
+      "user_answers": ["B", "A", "A"]
     }
     ```
 
@@ -72,10 +69,4 @@ Follow the instructions below to use the FastAPI Quiz API:
 - **URL:** http://127.0.0.1:8000/result/{quiz_id}/{user_id}
   - Replace `{quiz_id}` with the ID of the quiz.
   - Replace `{user_id}` with the ID of the user.
-
-## Examples
-
-### Example 1: Retrieve a Quiz
-
-```bash
-curl http://127.0.0.1:8000/quizzes/1
+  - Eg: http://127.0.0.1:8000/result/1/1 for user_id: 1 and quiz_id: 1
