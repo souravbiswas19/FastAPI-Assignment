@@ -69,4 +69,4 @@ This repository contains a simple Quiz API built using FastAPI. The API allows u
 - **URL:** http://127.0.0.1:8000/result/{quiz_id}/{user_id}
   - Replace `{quiz_id}` with the ID of the quiz.
   - Replace `{user_id}` with the ID of the user.
-  - Eg: http://127.0.0.1:8000/result/1/1 for user_id: 1 and quiz_id: 1
+  - Eg: http://127.0.0.1:8000/result/1/1 for quiz_id: 1 and user_id: 1 respectively
