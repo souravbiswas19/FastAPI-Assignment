@@ -2,8 +2,6 @@ from fastapi import FastAPI, HTTPException, Path, status
 from pydantic import BaseModel
 from database import SessionLocal
 from models import Quiz, UserSubmission
-import models
-import quiz_db
 
 app = FastAPI()
 db = SessionLocal()
@@ -27,11 +25,8 @@ class ResultResponse(OurBaseModel):
     user_score: int
     correct_answers: list[str]
 
-models.create_tables()
-quiz_db.feed_quizzes_to_db()
-
 @app.get("/quizzes/{quiz_id}", response_model=QuizResponse)
-async def get_quiz(quiz_id: int = Path(..., title="The ID of the quiz to retrieve")):
+async def get_quiz(quiz_id: int):
     db = SessionLocal()
     quiz = db.query(Quiz).filter(Quiz.quiz_id == quiz_id).first()
     db.close()
@@ -79,7 +74,3 @@ async def get_result(quiz_id: int,user_id: int):
     user_score = sum(answer == correct_answer for answer, correct_answer in zip(user_answers, correct_answers))
 
     return {"quiz_id": quiz_id, "user_id": user_id, "user_score": user_score, "correct_answers": correct_answers}
-
-if __name__ == "__main__":
-    import uvicorn
-    uvicorn.run(app, host="127.0.0.1", port=8000)

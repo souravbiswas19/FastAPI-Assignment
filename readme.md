@@ -19,13 +19,15 @@ This repository contains a simple Quiz API built using FastAPI. The API allows u
 
 1. Run the FastAPI application:
 
-    -> Run the `main.py` file using code runner or in the terminal 
+    Step 1 - Run the `quiz_db.py` file using code runner or in the terminal 
 
     ```bash
-    python main.py
+    python quiz_db.py
     ```
+
+    This will create the `quizzes` and `user_submissions` tables 'ONCE' in the Postgresql Database with database name 'Quiz. This file will also insert the 3 predefined set of quizzes with 3 quizzes in each set with 4 options in the database.
     
-    -> Alternatively, you can run it with Uvicorn
+    Step 2 - Run Uvicorn in `--reload` mode
 
     ```bash
     uvicorn main:app --reload

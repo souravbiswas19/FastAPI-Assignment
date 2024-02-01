@@ -73,3 +73,7 @@ def feed_quizzes_to_db():
         db.add(db_quiz)
     db.commit()
     db.close()
+
+    
+models.create_tables()
+feed_quizzes_to_db()
