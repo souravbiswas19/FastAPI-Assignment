@@ -6,14 +6,23 @@ This repository contains a simple Quiz API built using FastAPI. The API allows u
 
 ### Prerequisites
 
-1. Install required packages by running:
-    
-    ```bash
-    pip install fastapi[all] sqlalchemy psycopg2 psycopg2-binary uvicorn[standard]
+1. Install [Python](https://www.python.org/downloads/).
+2. Install required packages by running:
 
+    ```bash
+    pip install -r requirements.txt
     ```
 
-2. Set up a PostgreSQL database and update the database url in the `database.py` file with your database credentials.
+3. Set up a PostgreSQL database and update the database url in the `database.py` file with your database credentials.
+
+      `postgresql://postgres:12345@localhost/Quiz`
+
+      Username - `postgres`
+
+      Password - `12345`
+
+      Database name - `Quiz`
+
 
 ### Running the FastAPI App
 
@@ -81,3 +90,14 @@ This repository contains a simple Quiz API built using FastAPI. The API allows u
   - Replace `{quiz_id}` with the ID of the quiz.
   - Replace `{user_id}` with the ID of the user.
   - Eg: http://127.0.0.1:8000/result/1/1 for quiz_id: 1 and user_id: 1 respectively
+
+### File description
+
+1. `database.py` - Python file to connect to the database
+
+2. `models.py` - Python file to store the class models
+
+3. `quiz_db.py` - Python file to define the quizes and feed them to the database
+
+4. `main.py` - Python file to call the API Ebdpoints.
+
